@@ -1,0 +1,19 @@
+services:
+  gg-test-node-backend-3:
+    build:
+      context: .
+      target: production
+    image: gg-test-node-backend-3
+    container_name: gg-test-node-backend-3
+    depends_on:
+      - gg-test-node-backend-3-postgres
+    environment:
+      APPINSIGHTS_CLOUDROLE: gg-test-node-backend-3-local
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+
+  gg-test-node-backend-3-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: gg-test-node-backend-3
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USERNAME: postgres

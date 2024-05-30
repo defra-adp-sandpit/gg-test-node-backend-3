@@ -1,0 +1,6 @@
+services:
+  gg-test-node-backend-3:
+    command: >
+      sh -c "npm run test:watch"
+    volumes:
+      - ./.git:/home/node/.git

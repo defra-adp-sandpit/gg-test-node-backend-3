@@ -1,0 +1,8 @@
+{{- include "adp-helm-library.deployment" (list . "gg-test-node-backend-3.deployment") -}}
+{{- define "gg-test-node-backend-3.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "adp-helm-library.container" (list . "gg-test-node-backend-3.container") }}
+{{- end -}}
